@@ -21,13 +21,30 @@ public class TestaMenorPreco {
         };
 
         int maisBarato = buscaMenor(produtos , 0 ,4);
+        int maisCaro = buscaMaior(produtos, 0 , 4);
 
 
         System.out.println(maisBarato);
         System.out.println("O Carro " + produtos[maisBarato].getNome() + " é o mais barato e custa " + produtos[maisBarato].getPreco());
+        System.out.println("");
+        System.out.println(maisCaro);
+        System.out.println("O Carro " + produtos[maisCaro].getNome() + " é o mais caro e custa " + produtos[maisCaro].getPreco());
     }
 
-    private static int buscaMenor(Produto[] produtos , int inicio ,  int termino) {
+    private static int buscaMaior(Produto[] produtos, int inicio, int termino) {
+
+        int maisCaro = inicio;
+
+        for (int atual = 0; atual <= termino ; atual++) {
+
+            if(produtos[atual].getPreco() >= produtos[maisCaro].getPreco()){
+                maisCaro = atual;
+            }
+        }
+        return maisCaro;
+    }
+
+    private static int buscaMenor(Produto[] produtos, int inicio, int termino) {
 
         int maisBarato = inicio;
 
