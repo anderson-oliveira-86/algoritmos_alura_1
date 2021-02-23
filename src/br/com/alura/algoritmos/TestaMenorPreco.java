@@ -15,23 +15,23 @@ public class TestaMenorPreco {
         Produto[] produtos = {
                 new Produto("Lamborghini" , 1000000),
                 new Produto("Jipe" , 46000),
-                new Produto("Brasília" , 16000),
+                new Produto("Brasília" , 116000),
                 new Produto("Smart" , 46000),
                 new Produto("Fusca" , 17000)
         };
 
-        int maisBarato = buscaMenor(produtos);
+        int maisBarato = buscaMenor(produtos , 0 ,4);
 
 
         System.out.println(maisBarato);
         System.out.println("O Carro " + produtos[maisBarato].getNome() + " é o mais barato e custa " + produtos[maisBarato].getPreco());
     }
 
-    private static int buscaMenor(Produto[] produtos) {
+    private static int buscaMenor(Produto[] produtos , int inicio ,  int termino) {
 
-        int maisBarato = 0;
+        int maisBarato = inicio;
 
-        for (int atual = 0; atual <= 4 ; atual++) {
+        for (int atual = 0; atual <= termino ; atual++) {
 
             if(produtos[atual].getPreco() <= produtos[maisBarato].getPreco()){
                 maisBarato = atual;
